@@ -774,9 +774,9 @@ function library:Introduction()
     crimWare.BackgroundTransparency = 1.000
     crimWare.Size = UDim2.new(0, 80, 0, 21)
     crimWare.Font = Enum.Font.Code
-    crimWare.Text = "powered by CrimWare"
+    crimWare.Text = "CrimWare"
     crimWare.TextColor3 = Color3.fromRGB(124, 124, 124)
-    crimWare.TextSize = 10.000
+    crimWare.TextSize = 8.000
     crimWare.TextTransparency = 1
     
     text.Name = "text"
