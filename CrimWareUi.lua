@@ -287,7 +287,7 @@ function library:Watermark(text)
     waterText.Text = text
     waterText.TextColor3 = Color3.fromRGB(198, 198, 198)
     waterText.TextTransparency = 1
-    waterText.TextSize = 14.000
+    waterText.TextSize = 10.000
     waterText.RichText = true
 
     local NewSize = TextService:GetTextSize(waterText.Text, waterText.TextSize, waterText.Font, Vector2.new(math.huge, math.huge))
@@ -776,7 +776,7 @@ function library:Introduction()
     crimWare.Font = Enum.Font.Code
     crimWare.Text = "CrimWare"
     crimWare.TextColor3 = Color3.fromRGB(124, 124, 124)
-    crimWare.TextSize = 8.000
+    crimWare.TextSize = 10.000
     crimWare.TextTransparency = 1
     
     text.Name = "text"
