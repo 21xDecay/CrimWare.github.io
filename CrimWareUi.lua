@@ -686,7 +686,7 @@ function library:Introduction()
     local barCorner = Instance.new("UICorner")
     local barLayout = Instance.new("UIListLayout")
     local crimLogo = Instance.new("ImageLabel")
-    local hashLogo = Instance.new("ImageLabel")
+    local crimWareLogo = Instance.new("ImageLabel")
     local crim = Instance.new("TextLabel")
     local text = Instance.new("TextLabel")
     local pageLayout = Instance.new("UIListLayout")
@@ -755,17 +755,17 @@ function library:Introduction()
     crimLogo.ImageColor3 = Color3.fromRGB(159, 115, 255)
     crimLogo.ImageTransparency = 1
     
-    hashLogo.Name = "hashLogo"
-    hashLogo.Parent = background
-    hashLogo.AnchorPoint = Vector2.new(0.5, 0.5)
-    hashLogo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    hashLogo.BackgroundTransparency = 1.000
-    hashLogo.Position = UDim2.new(0.5, 0, 0.5, 0)
-    hashLogo.Size = UDim2.new(0, 150, 0, 150)
-    hashLogo.Visible = true
-    hashLogo.Image = "http://www.roblox.com/asset/?id=9365069861"
-    hashLogo.ImageColor3 = Color3.fromRGB(159, 115, 255)
-    hashLogo.ImageTransparency = 1
+    crimWareLogo.Name = "crimWareLogo"
+    crimWareLogo.Parent = background
+    crimWareLogo.AnchorPoint = Vector2.new(0.5, 0.5)
+    crimWareLogo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    crimWareLogo.BackgroundTransparency = 1.000
+    crimWareLogo.Position = UDim2.new(0.5, 0, 0.5, 0)
+    crimWareLogo.Size = UDim2.new(0, 150, 0, 150)
+    crimWareLogo.Visible = true
+    crimWareLogo.Image = "http://www.roblox.com/asset/?id=9365069861"
+    crimWareLogo.ImageColor3 = Color3.fromRGB(159, 115, 255)
+    crimWareLogo.ImageTransparency = 1
     
     crim.Name = "crim"
     crim.Parent = background
@@ -818,9 +818,9 @@ function library:Introduction()
     wait(2)
     TweenService:Create(crimLogo, TweenTable["introduction"], {ImageTransparency = 1}):Play()
     wait(.2)
-    TweenService:Create(hashLogo, TweenTable["introduction"], {ImageTransparency = 0}):Play()
+    TweenService:Create(crimWareLogo, TweenTable["introduction"], {ImageTransparency = 0}):Play()
     wait(2)
-    TweenService:Create(hashLogo, TweenTable["introduction"], {ImageTransparency = 1}):Play()
+    TweenService:Create(crimWareLogo, TweenTable["introduction"], {ImageTransparency = 1}):Play()
     wait(.1)
     TweenService:Create(text, TweenTable["introduction"], {TextTransparency = 1}):Play()
     wait(.1)
