@@ -687,7 +687,7 @@ function library:Introduction()
     local barCorner = Instance.new("UICorner")
     local barLayout = Instance.new("UIListLayout")
     local crimWareLogo = Instance.new("ImageLabel")
-    local hashLogo = Instance.new("ImageLabel")
+    local crimLogo = Instance.new("ImageLabel")
     local crimWare = Instance.new("TextLabel")
     local text = Instance.new("TextLabel")
     local pageLayout = Instance.new("UIListLayout")
@@ -756,17 +756,17 @@ function library:Introduction()
     crimWareLogo.ImageColor3 = Color3.fromRGB(159, 115, 255)
     crimWareLogo.ImageTransparency = 1
     
-    hashLogo.Name = "hashLogo"
-    hashLogo.Parent = background
-    hashLogo.AnchorPoint = Vector2.new(0.5, 0.5)
-    hashLogo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    hashLogo.BackgroundTransparency = 1.000
-    hashLogo.Position = UDim2.new(0.5, 0, 0.5, 0)
-    hashLogo.Size = UDim2.new(0, 150, 0, 150)
-    hashLogo.Visible = true
-    hashLogo.Image = "http://www.roblox.com/asset/?id=9365069861"
-    hashLogo.ImageColor3 = Color3.fromRGB(159, 115, 255)
-    hashLogo.ImageTransparency = 1
+    crimLogo.Name = "crimLogo"
+    crimLogo.Parent = background
+    crimLogo.AnchorPoint = Vector2.new(0.5, 0.5)
+    crimLogo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    crimLogo.BackgroundTransparency = 1.000
+    crimLogo.Position = UDim2.new(0.5, 0, 0.5, 0)
+    crimLogo.Size = UDim2.new(0, 150, 0, 150)
+    crimLogo.Visible = true
+    crimLogo.Image = "http://www.roblox.com/asset/?id=91121270096287"
+    crimLogo.ImageColor3 = Color3.fromRGB(159, 115, 255)
+    crimLogo.ImageTransparency = 1
     
     crimWare.Name = "CrimWare"
     crimWare.Parent = background
@@ -786,7 +786,7 @@ function library:Introduction()
     text.Position = UDim2.new(0.912751675, 0, 0, 0)
     text.Size = UDim2.new(0, 26, 0, 21)
     text.Font = Enum.Font.Code
-    text.Text = "hash"
+    text.Text = "CrimWare"
     text.TextColor3 = Color3.fromRGB(124, 124, 124)
     text.TextSize = 10.000
     text.TextTransparency = 1
@@ -819,9 +819,9 @@ function library:Introduction()
     wait(2)
     TweenService:Create(crimWareLogo, TweenTable["introduction"], {ImageTransparency = 1}):Play()
     wait(.2)
-    TweenService:Create(hashLogo, TweenTable["introduction"], {ImageTransparency = 0}):Play()
+    TweenService:Create(crimLogo, TweenTable["introduction"], {ImageTransparency = 0}):Play()
     wait(2)
-    TweenService:Create(hashLogo, TweenTable["introduction"], {ImageTransparency = 1}):Play()
+    TweenService:Create(crimLogo, TweenTable["introduction"], {ImageTransparency = 1}):Play()
     wait(.1)
     TweenService:Create(text, TweenTable["introduction"], {TextTransparency = 1}):Play()
     wait(.1)
