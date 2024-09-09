@@ -287,7 +287,7 @@ function library:Watermark(text)
     waterText.Text = text
     waterText.TextColor3 = Color3.fromRGB(136, 223, 108)
     waterText.TextTransparency = 1
-    waterText.TextSize = 8.000
+    waterText.TextSize = 10.000
     waterText.RichText = true
 
     local NewSize = TextService:GetTextSize(waterText.Text, waterText.TextSize, waterText.Font, Vector2.new(math.huge, math.huge))
@@ -392,7 +392,7 @@ function library:Watermark(text)
         waterText.Text = text
         waterText.TextColor3 = Color3.fromRGB(136, 223, 108)
         waterText.TextTransparency = 1
-        waterText.TextSize = 14.000
+        waterText.TextSize = 10.000
         waterText.RichText = true
     
         local NewSize = TextService:GetTextSize(waterText.Text, waterText.TextSize, waterText.Font, Vector2.new(math.huge, math.huge))
@@ -599,7 +599,7 @@ function library:InitNotifications(text, duration, callback)
         notifText.Font = Enum.Font.Code
         notifText.Text = text
         notifText.TextColor3 = Color3.fromRGB(136, 223, 108)
-        notifText.TextSize = 14.000
+        notifText.TextSize = 10.000
         notifText.TextTransparency = 1.000
         notifText.TextXAlignment = Enum.TextXAlignment.Left
         notifText.RichText = true
@@ -918,7 +918,7 @@ function library:Init(key)
     headerLabel.Font = Enum.Font.Code
     headerLabel.Text = title
     headerLabel.TextColor3 = Color3.fromRGB(136, 223, 108)
-    headerLabel.TextSize = 16.000
+    headerLabel.TextSize = 10.000
     headerLabel.TextXAlignment = Enum.TextXAlignment.Left
     headerLabel.RichText = true
 
