@@ -775,7 +775,7 @@ function library:Introduction()
     crim.Font = Enum.Font.Code
     crim.Text = "powered by CrimWare"
     crim.TextColor3 = Color3.fromRGB(124, 124, 124)
-    crim.TextSize = 8.000
+    crim.TextSize = 6.000
     crim.TextTransparency = 1
     
     text.Name = "text"
@@ -785,9 +785,9 @@ function library:Introduction()
     text.Position = UDim2.new(0.912751675, 0, 0, 0)
     text.Size = UDim2.new(0, 26, 0, 21)
     text.Font = Enum.Font.Code
-    text.Text = "hash"
+    text.Text = "By: Bat"
     text.TextColor3 = Color3.fromRGB(124, 124, 124)
-    text.TextSize = 10.000
+    text.TextSize = 8.000
     text.TextTransparency = 1
     text.RichText = true
     
