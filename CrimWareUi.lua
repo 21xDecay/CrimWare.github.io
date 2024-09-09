@@ -764,7 +764,7 @@ function library:Introduction()
     crimLogo.Position = UDim2.new(0.5, 0, 0.5, 0)
     crimLogo.Size = UDim2.new(0, 150, 0, 150)
     crimLogo.Visible = true
-    crimLogo.Image = "http://www.roblox.com/asset/?id=91121270096287"
+    crimLogo.Image = "http://www.roblox.com/asset/?id=139004453977487"
     crimLogo.ImageColor3 = Color3.fromRGB(159, 115, 255)
     crimLogo.ImageTransparency = 1
     
