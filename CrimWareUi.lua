@@ -3176,19 +3176,20 @@ function library:Init(key)
             return SelectorFunctions
         end
         --
-        function Components:NewSlider(text, suffix, compare, compareSign, values, callback)
-            text = text or "slider"
-            suffix = suffix or ""
-            compare = compare or false
-            compareSign = compareSign or "/"
-            values = values or {
-                min = values.min or 0,
-                max = values.max or 100,
-                default = values.default or 0
-            }
-            callback = callback or function() end
+        function Components:NewSlider(text, suffix, compare, compareSign, values, isDecimal, callback)
+    text = text or "slider"
+    suffix = suffix or ""
+    compare = compare or false
+    compareSign = compareSign or "/"
+    values = values or {
+        min = values.min or 0,
+        max = values.max or 100,
+        default = values.default or 0
+    }
+    callback = callback or function() end
+    isDecimal = isDecimal or false -- New parameter to control decimal increments
 
-            values.max = values.max + 1
+    values.max = values.max + 1
 
             local sliderFrame = Instance.new("Frame")
             local sliderFolder = Instance.new("Folder")
@@ -3339,61 +3340,67 @@ function library:Init(key)
 
             CreateTween("slider_drag", 0.008)
 
-            local ValueNum = values.default
-            local slideText = compare and ValueNum .. compareSign .. tostring(values.max - 1) .. suffix or ValueNum .. suffix
-            sliderValue.Text = slideText
-            local function UpdateSlider()
-                TweenService:Create(sliderIndicator, TweenTable["slider_drag"], {Size = UDim2.new(0, math.clamp(Mouse.X - sliderIndicator.AbsolutePosition.X, 0, sliderBackground.AbsoluteSize.X), 0, 12)}):Play()
+local ValueNum = values.default
+    local increment = isDecimal and 0.1 or 1 -- Increment value based on isDecimal
+    local slideText = compare and ValueNum .. compareSign .. tostring(values.max - 1) .. suffix or ValueNum .. suffix
+    sliderValue.Text = slideText
 
-                ValueNum = math.floor((((tonumber(values.max) - tonumber(values.min)) / sliderBackground.AbsoluteSize.X) * sliderIndicator.AbsoluteSize.X) + tonumber(values.min)) or 0.00
+    local function UpdateSlider()
+        TweenService:Create(sliderIndicator, TweenTable["slider_drag"], {Size = UDim2.new(0, math.clamp(Mouse.X - sliderIndicator.AbsolutePosition.X, 0, sliderBackground.AbsoluteSize.X), 0, 12)}):Play()
 
-                local slideText = compare and ValueNum .. compareSign .. tostring(values.max - 1) .. suffix or ValueNum .. suffix
+        local rawValue = (((tonumber(values.max) - tonumber(values.min)) / sliderBackground.AbsoluteSize.X) * sliderIndicator.AbsoluteSize.X) + tonumber(values.min)
+
+        -- Round the value based on isDecimal
+        if isDecimal then
+            ValueNum = math.floor(rawValue * 10 + 0.5) / 10 -- Rounds to nearest 0.1
+        else
+            ValueNum = math.floor(rawValue) -- Rounds to nearest integer
+        end
+
+        slideText = compare and ValueNum .. compareSign .. tostring(values.max - 1) .. suffix or ValueNum .. suffix
+        sliderValue.Text = slideText
+
+        pcall(function()
+            callback(ValueNum)
+        end)
 
                 sliderValue.Text = slideText
 
-                pcall(function()
-                    callback(ValueNum)
-                end)
+        moveconnection = Mouse.Move:Connect(function()
+            local rawValue = (((tonumber(values.max) - tonumber(values.min)) / sliderBackground.AbsoluteSize.X) * sliderIndicator.AbsoluteSize.X) + tonumber(values.min)
 
-                sliderValue.Text = slideText
-
-                moveconnection = Mouse.Move:Connect(function()
-                    ValueNum = math.floor((((tonumber(values.max) - tonumber(values.min)) / sliderBackground.AbsoluteSize.X) * sliderIndicator.AbsoluteSize.X) + tonumber(values.min))
-                    
-                    slideText = compare and ValueNum .. compareSign .. tostring(values.max - 1) .. suffix or ValueNum .. suffix
-                    sliderValue.Text = slideText
-
-                    pcall(function()
-                        callback(ValueNum)
-                    end)
-
-                    TweenService:Create(sliderIndicator, TweenTable["slider_drag"], {Size = UDim2.new(0, math.clamp(Mouse.X - sliderIndicator.AbsolutePosition.X, 0, sliderBackground.AbsoluteSize.X), 0, 12)}):Play()
-                    if not UserInputService.WindowFocused then
-                        moveconnection:Disconnect()
-                    end
-                end)
-
-                releaseconnection = UserInputService.InputEnded:Connect(function(Mouse_2)
-                    if Mouse_2.UserInputType == Enum.UserInputType.MouseButton1 then
-                        ValueNum = math.floor((((tonumber(values.max) - tonumber(values.min)) / sliderBackground.AbsoluteSize.X) * sliderIndicator.AbsoluteSize.X) + tonumber(values.min))
-                        
-                        slideText = compare and ValueNum .. compareSign .. tostring(values.max - 1) .. suffix or ValueNum .. suffix
-                        sliderValue.Text = slideText
-
-                        pcall(function()
-                            callback(ValueNum)
-                        end)
-
-                        TweenService:Create(sliderIndicator, TweenTable["slider_drag"], {Size = UDim2.new(0, math.clamp(Mouse.X - sliderIndicator.AbsolutePosition.X, 0, sliderBackground.AbsoluteSize.X), 0, 12)}):Play()
-                        moveconnection:Disconnect()
-                        releaseconnection:Disconnect()
-                    end
-                end)
+            -- Adjust the slider value based on isDecimal
+            if isDecimal then
+                ValueNum = math.floor(rawValue * 10 + 0.5) / 10 -- Rounds to nearest 0.1
+            else
+                ValueNum = math.floor(rawValue) -- Rounds to nearest integer
             end
 
-            sliderButton.MouseButton1Down:Connect(function()
-                UpdateSlider()
+            slideText = compare and ValueNum .. compareSign .. tostring(values.max - 1) .. suffix or ValueNum .. suffix
+            sliderValue.Text = slideText
+
+            pcall(function()
+                callback(ValueNum)
             end)
+
+            TweenService:Create(sliderIndicator, TweenTable["slider_drag"], {Size = UDim2.new(0, math.clamp(Mouse.X - sliderIndicator.AbsolutePosition.X, 0, sliderBackground.AbsoluteSize.X), 0, 12)}):Play()
+
+            if not UserInputService.WindowFocused then
+                moveconnection:Disconnect()
+            end
+        end)
+
+        releaseconnection = UserInputService.InputEnded:Connect(function(Mouse_2)
+            if Mouse_2.UserInputType == Enum.UserInputType.MouseButton1 then
+                moveconnection:Disconnect()
+                releaseconnection:Disconnect()
+            end
+        end)
+    end
+
+    sliderButton.MouseButton1Down:Connect(function()
+        UpdateSlider()
+    end)
 
             UpdatePageSize()
 
