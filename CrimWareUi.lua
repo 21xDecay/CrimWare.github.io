@@ -285,7 +285,7 @@ function library:Watermark(text)
     waterText.Size = UDim2.new(0, 0, 0, 24)
     waterText.Font = Enum.Font.Code
     waterText.Text = text
-    waterText.TextColor3 = Color3.fromRGB(198, 198, 198)
+    waterText.TextColor3 = Color3.fromRGB(181, 220, 249)
     waterText.TextTransparency = 1
     waterText.TextSize = 8.000
     waterText.RichText = true
@@ -390,7 +390,7 @@ function library:Watermark(text)
         waterText.Size = UDim2.new(0, 0, 0, 24)
         waterText.Font = Enum.Font.Code
         waterText.Text = text
-        waterText.TextColor3 = Color3.fromRGB(198, 198, 198)
+        waterText.TextColor3 = Color3.fromRGB(181, 220, 249)
         waterText.TextTransparency = 1
         waterText.TextSize = 14.000
         waterText.RichText = true
@@ -598,7 +598,7 @@ function library:InitNotifications(text, duration, callback)
         notifText.Size = UDim2.new(0, 230, 0, 26)
         notifText.Font = Enum.Font.Code
         notifText.Text = text
-        notifText.TextColor3 = Color3.fromRGB(198, 198, 198)
+        notifText.TextColor3 = Color3.fromRGB(181, 220, 249)
         notifText.TextSize = 14.000
         notifText.TextTransparency = 1.000
         notifText.TextXAlignment = Enum.TextXAlignment.Left
@@ -917,7 +917,7 @@ function library:Init(key)
     headerLabel.Size = UDim2.new(0, 592, 0, 38)
     headerLabel.Font = Enum.Font.Code
     headerLabel.Text = title
-    headerLabel.TextColor3 = Color3.fromRGB(198, 198, 198)
+    headerLabel.TextColor3 = Color3.fromRGB(181, 220, 249)
     headerLabel.TextSize = 16.000
     headerLabel.TextXAlignment = Enum.TextXAlignment.Left
     headerLabel.RichText = true
