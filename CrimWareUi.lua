@@ -287,7 +287,7 @@ function library:Watermark(text)
     waterText.Text = text
     waterText.TextColor3 = Color3.fromRGB(198, 198, 198)
     waterText.TextTransparency = 1
-    waterText.TextSize = 10.000
+    waterText.TextSize = 8.000
     waterText.RichText = true
 
     local NewSize = TextService:GetTextSize(waterText.Text, waterText.TextSize, waterText.Font, Vector2.new(math.huge, math.huge))
@@ -764,7 +764,7 @@ function library:Introduction()
     crimLogo.Position = UDim2.new(0.5, 0, 0.5, 0)
     crimLogo.Size = UDim2.new(0, 150, 0, 150)
     crimLogo.Visible = true
-    crimLogo.Image = "http://www.roblox.com/asset/?id=139004453977487"
+    crimLogo.Image = "https://create.roblox.com/store/asset/139004453977487/CrimWare-Logo-Background-Removed"
     crimLogo.ImageColor3 = Color3.fromRGB(159, 115, 255)
     crimLogo.ImageTransparency = 1
     
