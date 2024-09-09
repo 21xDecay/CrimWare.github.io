@@ -256,7 +256,7 @@ function library:Watermark(text)
 
     bar.Name = "bar"
     bar.Parent = barFolder
-    bar.BackgroundColor3 = Color3.fromRGB(255,41,30)
+    bar.BackgroundColor3 = Color3.fromRGB(136, 223, 108)
     bar.BackgroundTransparency = 0
     bar.Size = UDim2.new(0, 0, 0, 1)
 
@@ -285,7 +285,7 @@ function library:Watermark(text)
     waterText.Size = UDim2.new(0, 0, 0, 24)
     waterText.Font = Enum.Font.Code
     waterText.Text = text
-    waterText.TextColor3 = Color3.fromRGB(255,41,30)
+    waterText.TextColor3 = Color3.fromRGB(136, 223, 108)
     waterText.TextTransparency = 1
     waterText.TextSize = 8.000
     waterText.RichText = true
@@ -361,7 +361,7 @@ function library:Watermark(text)
     
         bar.Name = "bar"
         bar.Parent = barFolder
-        bar.BackgroundColor3 = Color3.fromRGB(255,41,30)
+        bar.BackgroundColor3 = Color3.fromRGB(136, 223, 108)
         bar.BackgroundTransparency = 0
         bar.Size = UDim2.new(0, 0, 0, 1)
     
@@ -390,7 +390,7 @@ function library:Watermark(text)
         waterText.Size = UDim2.new(0, 0, 0, 24)
         waterText.Font = Enum.Font.Code
         waterText.Text = text
-        waterText.TextColor3 = Color3.fromRGB(255,41,30)
+        waterText.TextColor3 = Color3.fromRGB(136, 223, 108)
         waterText.TextTransparency = 1
         waterText.TextSize = 14.000
         waterText.RichText = true
@@ -559,11 +559,11 @@ function library:InitNotifications(text, duration, callback)
     
         bar.Name = "bar"
         bar.Parent = barFolder
-        bar.BackgroundColor3 = Color3.fromRGB(255,41,30)
+        bar.BackgroundColor3 = Color3.fromRGB(136, 223, 108)
         bar.BackgroundTransparency = 0.200
         bar.Size = UDim2.new(0, 0, 0, 1)
         if type == "notification" then
-            bar.BackgroundColor3 = Color3.fromRGB(255,41,30)
+            bar.BackgroundColor3 = Color3.fromRGB(136, 223, 108)
         elseif type == "alert" then
             bar.BackgroundColor3 = Color3.fromRGB(255, 246, 112)
         elseif type == "error" then
@@ -571,7 +571,7 @@ function library:InitNotifications(text, duration, callback)
         elseif type == "success" then
             bar.BackgroundColor3 = Color3.fromRGB(131, 255, 103)
         elseif type == "information" then
-            bar.BackgroundColor3 = Color3.fromRGB(255,41,30)
+            bar.BackgroundColor3 = Color3.fromRGB(136, 223, 108)
         end
     
         barCorner.CornerRadius = UDim.new(0, 2)
@@ -598,7 +598,7 @@ function library:InitNotifications(text, duration, callback)
         notifText.Size = UDim2.new(0, 230, 0, 26)
         notifText.Font = Enum.Font.Code
         notifText.Text = text
-        notifText.TextColor3 = Color3.fromRGB(255,41,30)
+        notifText.TextColor3 = Color3.fromRGB(136, 223, 108)
         notifText.TextSize = 14.000
         notifText.TextTransparency = 1.000
         notifText.TextXAlignment = Enum.TextXAlignment.Left
@@ -731,7 +731,7 @@ function library:Introduction()
     
     bar.Name = "bar"
     bar.Parent = barFolder
-    bar.BackgroundColor3 = Color3.fromRGB(255,41,30)
+    bar.BackgroundColor3 = Color3.fromRGB(136, 223, 108)
     bar.BackgroundTransparency = 0.200
     bar.Size = UDim2.new(0, 0, 0, 1)
     
@@ -753,7 +753,7 @@ function library:Introduction()
     crimWareLogo.Size = UDim2.new(0, 448, 0, 150)
     crimWareLogo.Visible = true
     crimWareLogo.Image = "http://www.roblox.com/asset/?id=91121270096287"
-    crimWareLogo.ImageColor3 = Color3.fromRGB(255,41,30)
+    crimWareLogo.ImageColor3 = Color3.fromRGB(136, 223, 108)
     crimWareLogo.ImageTransparency = 1
     
     crimLogo.Name = "crimLogo"
@@ -765,7 +765,7 @@ function library:Introduction()
     crimLogo.Size = UDim2.new(0, 150, 0, 150)
     crimLogo.Visible = true
     crimLogo.Image = "https://create.roblox.com/store/asset/139004453977487/CrimWare-Logo-Background-Removed"
-    crimLogo.ImageColor3 = Color3.fromRGB(255,41,30)
+    crimLogo.ImageColor3 = Color3.fromRGB(136, 223, 108)
     crimLogo.ImageTransparency = 1
     
     crimWare.Name = "CrimWare"
@@ -917,7 +917,7 @@ function library:Init(key)
     headerLabel.Size = UDim2.new(0, 592, 0, 38)
     headerLabel.Font = Enum.Font.Code
     headerLabel.Text = title
-    headerLabel.TextColor3 = Color3.fromRGB(255,41,30)
+    headerLabel.TextColor3 = Color3.fromRGB(136, 223, 108)
     headerLabel.TextSize = 16.000
     headerLabel.TextXAlignment = Enum.TextXAlignment.Left
     headerLabel.RichText = true
@@ -934,7 +934,7 @@ function library:Init(key)
 
     bar.Name = "bar"
     bar.Parent = barFolder
-    bar.BackgroundColor3 = Color3.fromRGB(255,41,30)
+    bar.BackgroundColor3 = Color3.fromRGB(136, 223, 108)
     bar.BackgroundTransparency = 0.200
     bar.Size = UDim2.new(0, 592, 0, 1)
     bar.BorderSizePixel = 0
@@ -1053,7 +1053,7 @@ function library:Init(key)
         page.MidImage = "http://www.roblox.com/asset/?id=3062506202"
         page.ScrollBarThickness = 1
         page.TopImage = "http://www.roblox.com/asset/?id=3062506202"
-        page.ScrollBarImageColor3 = Color3.fromRGB(255,41,30)
+        page.ScrollBarImageColor3 = Color3.fromRGB(136, 223, 108)
         page.Visible = false
         
         pageLayout.Name = "pageLayout"
@@ -1071,7 +1071,7 @@ function library:Init(key)
 
         if TabLibrary.IsFirst then
             page.Visible = true
-            tabButton.TextColor3 = Color3.fromRGB(255,41,30)
+            tabButton.TextColor3 = Color3.fromRGB(136, 223, 108)
             TabLibrary.CurrentTab = title
         end
         
@@ -1089,7 +1089,7 @@ function library:Init(key)
                     TweenService:Create(v, TweenTable["tab_text_colour"], {TextColor3 = Color3.fromRGB(170, 170, 170)}):Play()
                 end
             end
-            TweenService:Create(tabButton, TweenTable["tab_text_colour"], {TextColor3 = Color3.fromRGB(255,41,30)}):Play()
+            TweenService:Create(tabButton, TweenTable["tab_text_colour"], {TextColor3 = Color3.fromRGB(136, 223, 108)}):Play()
         end)
 
         local function UpdatePageSize()
@@ -1258,7 +1258,7 @@ function library:Init(key)
             end)
 
             button.MouseButton1Down:Connect(function()
-                TweenService:Create(buttonLabel, TweenTable["hover"], {TextColor3 = Color3.fromRGB(255,41,30)}):Play()
+                TweenService:Create(buttonLabel, TweenTable["hover"], {TextColor3 = Color3.fromRGB(136, 223, 108)}):Play()
             end)
             button.MouseButton1Up:Connect(function()
                 TweenService:Create(buttonLabel, TweenTable["hover"], {TextColor3 = Color3.fromRGB(190, 190, 190)}):Play()
@@ -1364,7 +1364,7 @@ function library:Init(key)
                     end)
         
                     button.MouseButton1Down:Connect(function()
-                        TweenService:Create(buttonLabel, TweenTable["hover"], {TextColor3 = Color3.fromRGB(255,41,30)}):Play()
+                        TweenService:Create(buttonLabel, TweenTable["hover"], {TextColor3 = Color3.fromRGB(136, 223, 108)}):Play()
                     end)
                     button.MouseButton1Up:Connect(function()
                         TweenService:Create(buttonLabel, TweenTable["hover"], {TextColor3 = Color3.fromRGB(190, 190, 190)}):Play()
@@ -1620,7 +1620,7 @@ function library:Init(key)
             toggleDesignCorner.Name = "toggleDesignCorner"
             toggleDesignCorner.Parent = toggleDesign
 
-            toggleDesignGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255,41,30)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(106, 69, 181))}
+            toggleDesignGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(136, 223, 108)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(136, 223, 108))}
             toggleDesignGradient.Rotation = 90
             toggleDesignGradient.Name = "toggleDesignGradient"
             toggleDesignGradient.Parent = toggleDesign
@@ -2351,7 +2351,7 @@ function library:Init(key)
 
                 textBoxValues.Focused:Connect(function()
                     textBoxValues:GetPropertyChangedSignal("Text"):Connect(ResizeTextBox)
-                    TweenService:Create(textbox, TweenTable["TextBox"], {BackgroundColor3 = Color3.fromRGB(255,41,30)}):Play()
+                    TweenService:Create(textbox, TweenTable["TextBox"], {BackgroundColor3 = Color3.fromRGB(136, 223, 108)}):Play()
                 end)
 
                 textBoxValues.FocusLost:Connect(function()
@@ -2580,7 +2580,7 @@ function library:Init(key)
                 end)
 
                 textBoxValues.Focused:Connect(function()
-                    TweenService:Create(textbox, TweenTable["TextBox"], {BackgroundColor3 = Color3.fromRGB(255,41,30)}):Play()
+                    TweenService:Create(textbox, TweenTable["TextBox"], {BackgroundColor3 = Color3.fromRGB(136, 223, 108)}):Play()
                 end)
 
                 textBoxValues.FocusLost:Connect(function()
@@ -2809,7 +2809,7 @@ function library:Init(key)
                 end)
 
                 textBoxValues.Focused:Connect(function()
-                    TweenService:Create(textbox, TweenTable["TextBox"], {BackgroundColor3 = Color3.fromRGB(255,41,30)}):Play()
+                    TweenService:Create(textbox, TweenTable["TextBox"], {BackgroundColor3 = Color3.fromRGB(136, 223, 108)}):Play()
                 end)
 
                 textBoxValues.FocusLost:Connect(function()
@@ -3048,7 +3048,7 @@ function library:Init(key)
                 optionButton.TextColor3 = Color3.fromRGB(160, 160, 160)
                 optionButton.TextSize = 14.000
                 if optionButton.Text == default then
-                    optionButton.TextColor3 = Color3.fromRGB(255,41,30)
+                    optionButton.TextColor3 = Color3.fromRGB(136, 223, 108)
                     callback(selectorText.Text)
                 end
 
@@ -3058,7 +3058,7 @@ function library:Init(key)
                             TweenService:Create(x, TweenTable["selector"], {TextColor3 = Color3.fromRGB(160, 160, 160)}):Play()
                         end
                     end
-                    TweenService:Create(optionButton, TweenTable["selector"], {TextColor3 = Color3.fromRGB(255,41,30)}):Play()
+                    TweenService:Create(optionButton, TweenTable["selector"], {TextColor3 = Color3.fromRGB(136, 223, 108)}):Play()
                     selectorText.Text = optionButton.Text
                     callback(optionButton.Text)
                 end)
@@ -3094,7 +3094,7 @@ function library:Init(key)
                 optionButton.TextColor3 = Color3.fromRGB(140, 140, 140)
                 optionButton.TextSize = 14.000
                 if optionButton.Text == default then
-                    optionButton.TextColor3 = Color3.fromRGB(255,41,30)
+                    optionButton.TextColor3 = Color3.fromRGB(136, 223, 108)
                     callback(selectorText.Text)
                 end
 
@@ -3104,7 +3104,7 @@ function library:Init(key)
                             TweenService:Create(x, TweenTable["selector"], {TextColor3 = Color3.fromRGB(140, 140, 140)}):Play()
                         end
                     end
-                    TweenService:Create(optionButton, TweenTable["selector"], {TextColor3 = Color3.fromRGB(255,41,30)}):Play()
+                    TweenService:Create(optionButton, TweenTable["selector"], {TextColor3 = Color3.fromRGB(136, 223, 108)}):Play()
                     selectorText.Text = optionButton.Text
                     callback(optionButton.Text)
                 end)
@@ -3275,7 +3275,7 @@ function library:Init(key)
             sliderIndicatorStraint.Parent = sliderIndicator
             sliderIndicatorStraint.MaxSize = Vector2.new(392, 12)
 
-            sliderIndicatorGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255,41,30)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(128, 94, 208))}
+            sliderIndicatorGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(136, 223, 108)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(128, 94, 208))}
             sliderIndicatorGradient.Rotation = 90
             sliderIndicatorGradient.Name = "sliderIndicatorGradient"
             sliderIndicatorGradient.Parent = sliderIndicator
@@ -3515,7 +3515,7 @@ function library:Init(key)
                     TweenService:Create(v, TweenTable["tab_text_colour"], {TextColor3 = Color3.fromRGB(170, 170, 170)}):Play()
                 end
             end
-            TweenService:Create(tabButton, TweenTable["tab_text_colour"], {TextColor3 = Color3.fromRGB(255,41,30)}):Play()
+            TweenService:Create(tabButton, TweenTable["tab_text_colour"], {TextColor3 = Color3.fromRGB(136, 223, 108)}):Play()
 
             return Components
         end
