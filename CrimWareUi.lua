@@ -72,7 +72,7 @@ local drag = function(obj, latency)
 end
 
 local library = {
-    version = "2.0.2",
+    version = "1.0.1",
     title = title or "CrimWare " .. tostring(math.random(1,366)),
     fps = 0,
     rank = "private"
