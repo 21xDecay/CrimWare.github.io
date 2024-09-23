@@ -73,7 +73,7 @@ end
 
 local library = {
     version = "1.0.1",
-    title = title or "CrimWare " .. tostring(math.random(1,366)),
+    title = title or "Spectral " .. tostring(math.random(1,366)),
     fps = 0,
     rank = "private"
 }
@@ -195,7 +195,7 @@ function library:Watermark(text)
         end
     end
 
-    tetx = text or "CrimWare v1"
+    tetx = text or "Spectral v1.0.1"
 
     local watermark = Instance.new("ScreenGui")
     local watermarkPadding = Instance.new("UIPadding")
@@ -255,7 +255,7 @@ function library:Watermark(text)
 
     bar.Name = "bar"
     bar.Parent = barFolder
-    bar.BackgroundColor3 = Color3.fromRGB(159, 115, 255)
+    bar.BackgroundColor3 = Color3.fromRGB(115, 159, 255)
     bar.BackgroundTransparency = 0
     bar.Size = UDim2.new(0, 0, 0, 1)
 
@@ -319,7 +319,7 @@ function library:Watermark(text)
 
     local WatermarkFunctions = {}
     function WatermarkFunctions:AddWatermark(text)
-        tetx = text or "CrimWare v1"
+        tetx = text or "Spectral v1.0.1"
 
         local edge = Instance.new("Frame")
         local edgeCorner = Instance.new("UICorner")
@@ -360,7 +360,7 @@ function library:Watermark(text)
     
         bar.Name = "bar"
         bar.Parent = barFolder
-        bar.BackgroundColor3 = Color3.fromRGB(159, 115, 255)
+        bar.BackgroundColor3 = Color3.fromRGB(115, 159, 255)
         bar.BackgroundTransparency = 0
         bar.Size = UDim2.new(0, 0, 0, 1)
     
@@ -558,11 +558,11 @@ function library:InitNotifications(text, duration, callback)
     
         bar.Name = "bar"
         bar.Parent = barFolder
-        bar.BackgroundColor3 = Color3.fromRGB(159, 115, 255)
+        bar.BackgroundColor3 = Color3.fromRGB(115, 159, 255)
         bar.BackgroundTransparency = 0.200
         bar.Size = UDim2.new(0, 0, 0, 1)
         if type == "notification" then
-            bar.BackgroundColor3 = Color3.fromRGB(159, 115, 255)
+            bar.BackgroundColor3 = Color3.fromRGB(115, 159, 255)
         elseif type == "alert" then
             bar.BackgroundColor3 = Color3.fromRGB(255, 246, 112)
         elseif type == "error" then
@@ -685,9 +685,9 @@ function library:Introduction()
     local bar = Instance.new("Frame")
     local barCorner = Instance.new("UICorner")
     local barLayout = Instance.new("UIListLayout")
-    local crimLogo = Instance.new("ImageLabel")
-    local crimWareLogo = Instance.new("ImageLabel")
-    local crim = Instance.new("TextLabel")
+    local spectLogo = Instance.new("ImageLabel")
+    local hashLogo = Instance.new("ImageLabel")
+    local spect = Instance.new("TextLabel")
     local text = Instance.new("TextLabel")
     local pageLayout = Instance.new("UIListLayout")
     
@@ -730,7 +730,7 @@ function library:Introduction()
     
     bar.Name = "bar"
     bar.Parent = barFolder
-    bar.BackgroundColor3 = Color3.fromRGB(159, 115, 255)
+    bar.BackgroundColor3 = Color3.fromRGB(115, 159, 255)
     bar.BackgroundTransparency = 0.200
     bar.Size = UDim2.new(0, 0, 0, 1)
     
@@ -742,41 +742,45 @@ function library:Introduction()
     barLayout.Parent = barFolder
     barLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
     barLayout.SortOrder = Enum.SortOrder.LayoutOrder
+
+    -- blueberry
+    -- Spect Logo
+    spectLogo.Name = "spectLogo"
+    spectLogo.Parent = background
+    spectLogo.AnchorPoint = Vector2.new(0.5, 0.5)
+    spectLogo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    spectLogo.BackgroundTransparency = 1.000
+    spectLogo.Position = UDim2.new(0.5, 0, 0.5, 0)
+    spectLogo.Size = UDim2.new(0, 150, 0, 150) -- Same size as hashLogo
+    spectLogo.Visible = true
+    spectLogo.Image = "https://www.roblox.com/asset-thumbnail/image?assetId=114506237962007&width=420&height=420&format=png" -- Updated URL
+    spectLogo.ImageColor3 = Color3.fromRGB(115, 159, 255)
+    spectLogo.ImageTransparency = 1
+
+    -- Hash Logo
+    local TweenService = game:GetService("TweenService")
+    hashLogo.Name = "hashLogo"
+    hashLogo.Parent = background
+    hashLogo.AnchorPoint = Vector2.new(0.5, 0.5)
+    hashLogo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    hashLogo.BackgroundTransparency = 1.000
+    hashLogo.Position = UDim2.new(0.5, 0, 0.5, 0)
+    hashLogo.Size = UDim2.new(0, 150, 0, 150)
+    hashLogo.Visible = true
+    hashLogo.Image = "https://www.roblox.com/asset-thumbnail/image?assetId=97006639061558&width=420&height=420&format=png" -- Updated URL
+    hashLogo.ImageColor3 = Color3.fromRGB(115, 159, 255)
+    hashLogo.ImageTransparency = 1
     
-    crimLogo.Name = "crimLogo"
-    crimLogo.Parent = background
-    crimLogo.AnchorPoint = Vector2.new(0.5, 0.5)
-    crimLogo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    crimLogo.BackgroundTransparency = 1.000
-    crimLogo.Position = UDim2.new(0.5, 0, 0.5, 0)
-    crimLogo.Size = UDim2.new(0, 448, 0, 150)
-    crimLogo.Visible = true
-    crimLogo.Image = "http://www.roblox.com/asset/?id=9365068051"
-    crimLogo.ImageColor3 = Color3.fromRGB(159, 115, 255)
-    crimLogo.ImageTransparency = 1
-    
-    crimWareLogo.Name = "crimWareLogo"
-    crimWareLogo.Parent = background
-    crimWareLogo.AnchorPoint = Vector2.new(0.5, 0.5)
-    crimWareLogo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    crimWareLogo.BackgroundTransparency = 1.000
-    crimWareLogo.Position = UDim2.new(0.5, 0, 0.5, 0)
-    crimWareLogo.Size = UDim2.new(0, 150, 0, 150)
-    crimWareLogo.Visible = true
-    crimWareLogo.Image = "http://www.roblox.com/asset/?id=9365069861"
-    crimWareLogo.ImageColor3 = Color3.fromRGB(159, 115, 255)
-    crimWareLogo.ImageTransparency = 1
-    
-    crim.Name = "crim"
-    crim.Parent = background
-    crim.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    crim.BackgroundTransparency = 1.000
-    crim.Size = UDim2.new(0, 80, 0, 21)
-    crim.Font = Enum.Font.Code
-    crim.Text = "CrimWare™"
-    crim.TextColor3 = Color3.fromRGB(124, 124, 124)
-    crim.TextSize = 10.000
-    crim.TextTransparency = 1
+    spect.Name = "spect"
+    spect.Parent = background
+    spect.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    spect.BackgroundTransparency = 1.000
+    spect.Size = UDim2.new(0, 80, 0, 21)
+    spect.Font = Enum.Font.Code
+    spect.Text = "by spectral"
+    spect.TextColor3 = Color3.fromRGB(124, 124, 124)
+    spect.TextSize = 10.000
+    spect.TextTransparency = 1
     
     text.Name = "text"
     text.Parent = background
@@ -785,7 +789,7 @@ function library:Introduction()
     text.Position = UDim2.new(0.912751675, 0, 0, 0)
     text.Size = UDim2.new(0, 26, 0, 21)
     text.Font = Enum.Font.Code
-    text.Text = "Bat"
+    text.Text = "Spect"
     text.TextColor3 = Color3.fromRGB(124, 124, 124)
     text.TextSize = 10.000
     text.TextTransparency = 1
@@ -797,12 +801,12 @@ function library:Introduction()
     pageLayout.SortOrder = Enum.SortOrder.LayoutOrder
     pageLayout.VerticalAlignment = Enum.VerticalAlignment.Center
 
-    CreateTween("crimRotation", 0)
+    CreateTween("spectRotation", 0)
     local MinusAmount = -16
     coroutine.wrap(function()
         while wait() do
             MinusAmount = MinusAmount + 0.4
-            TweenService:Create(crimLogo, TweenTable["crimRotation"], {Rotation = crimLogo.Rotation - MinusAmount}):Play()
+            TweenService:Create(spectRotation, TweenTable["spectRotation"], {Rotation = spectLogo.Rotation - MinusAmount}):Play()
         end
     end)()
 
@@ -811,20 +815,20 @@ function library:Introduction()
     wait(.2)
     TweenService:Create(bar, TweenTable["introduction"], {Size = UDim2.new(0, 298, 0, 1)}):Play()
     wait(.2)
-    TweenService:Create(crim, TweenTable["introduction"], {TextTransparency = 0}):Play()
+    TweenService:Create(spect, TweenTable["introduction"], {TextTransparency = 0}):Play()
     TweenService:Create(text, TweenTable["introduction"], {TextTransparency = 0}):Play()
     wait(.3)
-    TweenService:Create(crimLogo, TweenTable["introduction"], {ImageTransparency = 0}):Play()
+    TweenService:Create(spectLogo, TweenTable["introduction"], {ImageTransparency = 0}):Play()
     wait(2)
-    TweenService:Create(crimLogo, TweenTable["introduction"], {ImageTransparency = 1}):Play()
+    TweenService:Create(spectLogo, TweenTable["introduction"], {ImageTransparency = 1}):Play()
     wait(.2)
-    TweenService:Create(crimWareLogo, TweenTable["introduction"], {ImageTransparency = 0}):Play()
+    TweenService:Create(hashLogo, TweenTable["introduction"], {ImageTransparency = 0}):Play()
     wait(2)
-    TweenService:Create(crimWareLogo, TweenTable["introduction"], {ImageTransparency = 1}):Play()
+    TweenService:Create(hashLogo, TweenTable["introduction"], {ImageTransparency = 1}):Play()
     wait(.1)
     TweenService:Create(text, TweenTable["introduction"], {TextTransparency = 1}):Play()
     wait(.1)
-    TweenService:Create(crim, TweenTable["introduction"], {TextTransparency = 1}):Play()
+    TweenService:Create(spect, TweenTable["introduction"], {TextTransparency = 1}):Play()
     wait(.1)
     TweenService:Create(bar, TweenTable["introduction"], {Size = UDim2.new(0, 0, 0, 1)}):Play()
     wait(.1)
@@ -933,7 +937,7 @@ function library:Init(key)
 
     bar.Name = "bar"
     bar.Parent = barFolder
-    bar.BackgroundColor3 = Color3.fromRGB(159, 115, 255)
+    bar.BackgroundColor3 = Color3.fromRGB(115, 159, 255)
     bar.BackgroundTransparency = 0.200
     bar.Size = UDim2.new(0, 592, 0, 1)
     bar.BorderSizePixel = 0
@@ -1052,7 +1056,7 @@ function library:Init(key)
         page.MidImage = "http://www.roblox.com/asset/?id=3062506202"
         page.ScrollBarThickness = 1
         page.TopImage = "http://www.roblox.com/asset/?id=3062506202"
-        page.ScrollBarImageColor3 = Color3.fromRGB(159, 115, 255)
+        page.ScrollBarImageColor3 = Color3.fromRGB(115, 159, 255)
         page.Visible = false
         
         pageLayout.Name = "pageLayout"
@@ -1070,7 +1074,7 @@ function library:Init(key)
 
         if TabLibrary.IsFirst then
             page.Visible = true
-            tabButton.TextColor3 = Color3.fromRGB(159, 115, 255)
+            tabButton.TextColor3 = Color3.fromRGB(115, 159, 255)
             TabLibrary.CurrentTab = title
         end
         
@@ -1088,7 +1092,7 @@ function library:Init(key)
                     TweenService:Create(v, TweenTable["tab_text_colour"], {TextColor3 = Color3.fromRGB(170, 170, 170)}):Play()
                 end
             end
-            TweenService:Create(tabButton, TweenTable["tab_text_colour"], {TextColor3 = Color3.fromRGB(159, 115, 255)}):Play()
+            TweenService:Create(tabButton, TweenTable["tab_text_colour"], {TextColor3 = Color3.fromRGB(115, 159, 255)}):Play()
         end)
 
         local function UpdatePageSize()
@@ -1257,7 +1261,7 @@ function library:Init(key)
             end)
 
             button.MouseButton1Down:Connect(function()
-                TweenService:Create(buttonLabel, TweenTable["hover"], {TextColor3 = Color3.fromRGB(159, 115, 255)}):Play()
+                TweenService:Create(buttonLabel, TweenTable["hover"], {TextColor3 = Color3.fromRGB(115, 159, 255)}):Play()
             end)
             button.MouseButton1Up:Connect(function()
                 TweenService:Create(buttonLabel, TweenTable["hover"], {TextColor3 = Color3.fromRGB(190, 190, 190)}):Play()
@@ -1363,7 +1367,7 @@ function library:Init(key)
                     end)
         
                     button.MouseButton1Down:Connect(function()
-                        TweenService:Create(buttonLabel, TweenTable["hover"], {TextColor3 = Color3.fromRGB(159, 115, 255)}):Play()
+                        TweenService:Create(buttonLabel, TweenTable["hover"], {TextColor3 = Color3.fromRGB(115, 159, 255)}):Play()
                     end)
                     button.MouseButton1Up:Connect(function()
                         TweenService:Create(buttonLabel, TweenTable["hover"], {TextColor3 = Color3.fromRGB(190, 190, 190)}):Play()
@@ -1619,7 +1623,7 @@ function library:Init(key)
             toggleDesignCorner.Name = "toggleDesignCorner"
             toggleDesignCorner.Parent = toggleDesign
 
-            toggleDesignGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(157, 115, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(106, 69, 181))}
+            toggleDesignGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(115, 157, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(69, 106, 181))}
             toggleDesignGradient.Rotation = 90
             toggleDesignGradient.Name = "toggleDesignGradient"
             toggleDesignGradient.Parent = toggleDesign
@@ -2350,7 +2354,7 @@ function library:Init(key)
 
                 textBoxValues.Focused:Connect(function()
                     textBoxValues:GetPropertyChangedSignal("Text"):Connect(ResizeTextBox)
-                    TweenService:Create(textbox, TweenTable["TextBox"], {BackgroundColor3 = Color3.fromRGB(159, 115, 255)}):Play()
+                    TweenService:Create(textbox, TweenTable["TextBox"], {BackgroundColor3 = Color3.fromRGB(115, 159, 255)}):Play()
                 end)
 
                 textBoxValues.FocusLost:Connect(function()
@@ -2579,7 +2583,7 @@ function library:Init(key)
                 end)
 
                 textBoxValues.Focused:Connect(function()
-                    TweenService:Create(textbox, TweenTable["TextBox"], {BackgroundColor3 = Color3.fromRGB(159, 115, 255)}):Play()
+                    TweenService:Create(textbox, TweenTable["TextBox"], {BackgroundColor3 = Color3.fromRGB(115, 159, 255)}):Play()
                 end)
 
                 textBoxValues.FocusLost:Connect(function()
@@ -2808,7 +2812,7 @@ function library:Init(key)
                 end)
 
                 textBoxValues.Focused:Connect(function()
-                    TweenService:Create(textbox, TweenTable["TextBox"], {BackgroundColor3 = Color3.fromRGB(159, 115, 255)}):Play()
+                    TweenService:Create(textbox, TweenTable["TextBox"], {BackgroundColor3 = Color3.fromRGB(115, 159, 255)}):Play()
                 end)
 
                 textBoxValues.FocusLost:Connect(function()
@@ -3047,7 +3051,7 @@ function library:Init(key)
                 optionButton.TextColor3 = Color3.fromRGB(160, 160, 160)
                 optionButton.TextSize = 14.000
                 if optionButton.Text == default then
-                    optionButton.TextColor3 = Color3.fromRGB(159, 115, 255)
+                    optionButton.TextColor3 = Color3.fromRGB(115, 159, 255)
                     callback(selectorText.Text)
                 end
 
@@ -3057,7 +3061,7 @@ function library:Init(key)
                             TweenService:Create(x, TweenTable["selector"], {TextColor3 = Color3.fromRGB(160, 160, 160)}):Play()
                         end
                     end
-                    TweenService:Create(optionButton, TweenTable["selector"], {TextColor3 = Color3.fromRGB(159, 115, 255)}):Play()
+                    TweenService:Create(optionButton, TweenTable["selector"], {TextColor3 = Color3.fromRGB(115, 159, 255)}):Play()
                     selectorText.Text = optionButton.Text
                     callback(optionButton.Text)
                 end)
@@ -3093,7 +3097,7 @@ function library:Init(key)
                 optionButton.TextColor3 = Color3.fromRGB(140, 140, 140)
                 optionButton.TextSize = 14.000
                 if optionButton.Text == default then
-                    optionButton.TextColor3 = Color3.fromRGB(159, 115, 255)
+                    optionButton.TextColor3 = Color3.fromRGB(115, 159, 255)
                     callback(selectorText.Text)
                 end
 
@@ -3103,7 +3107,7 @@ function library:Init(key)
                             TweenService:Create(x, TweenTable["selector"], {TextColor3 = Color3.fromRGB(140, 140, 140)}):Play()
                         end
                     end
-                    TweenService:Create(optionButton, TweenTable["selector"], {TextColor3 = Color3.fromRGB(159, 115, 255)}):Play()
+                    TweenService:Create(optionButton, TweenTable["selector"], {TextColor3 = Color3.fromRGB(115, 159, 255)}):Play()
                     selectorText.Text = optionButton.Text
                     callback(optionButton.Text)
                 end)
@@ -3176,20 +3180,19 @@ function library:Init(key)
             return SelectorFunctions
         end
         --
-        function Components:NewSlider(text, suffix, compare, compareSign, values, isDecimal, callback)
-    text = text or "slider"
-    suffix = suffix or ""
-    compare = compare or false
-    compareSign = compareSign or "/"
-    values = values or {
-        min = values.min or 0,
-        max = values.max or 100,
-        default = values.default or 0
-    }
-    callback = callback or function() end
-    isDecimal = isDecimal or false -- New parameter to control decimal increments
+        function Components:NewSlider(text, suffix, compare, compareSign, values, callback)
+            text = text or "slider"
+            suffix = suffix or ""
+            compare = compare or false
+            compareSign = compareSign or "/"
+            values = values or {
+                min = values.min or 0,
+                max = values.max or 100,
+                default = values.default or 0
+            }
+            callback = callback or function() end
 
-    values.max = values.max + 1
+            values.max = values.max + 1
 
             local sliderFrame = Instance.new("Frame")
             local sliderFolder = Instance.new("Folder")
@@ -3275,7 +3278,7 @@ function library:Init(key)
             sliderIndicatorStraint.Parent = sliderIndicator
             sliderIndicatorStraint.MaxSize = Vector2.new(392, 12)
 
-            sliderIndicatorGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(159, 115, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(128, 94, 208))}
+            sliderIndicatorGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(115, 159, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(128, 94, 208))}
             sliderIndicatorGradient.Rotation = 90
             sliderIndicatorGradient.Name = "sliderIndicatorGradient"
             sliderIndicatorGradient.Parent = sliderIndicator
@@ -3340,67 +3343,61 @@ function library:Init(key)
 
             CreateTween("slider_drag", 0.008)
 
-local ValueNum = values.default
-    local increment = isDecimal and 0.1 or 1 -- Increment value based on isDecimal
-    local slideText = compare and ValueNum .. compareSign .. tostring(values.max - 1) .. suffix or ValueNum .. suffix
-    sliderValue.Text = slideText
+            local ValueNum = values.default
+            local slideText = compare and ValueNum .. compareSign .. tostring(values.max - 1) .. suffix or ValueNum .. suffix
+            sliderValue.Text = slideText
+            local function UpdateSlider()
+                TweenService:Create(sliderIndicator, TweenTable["slider_drag"], {Size = UDim2.new(0, math.clamp(Mouse.X - sliderIndicator.AbsolutePosition.X, 0, sliderBackground.AbsoluteSize.X), 0, 12)}):Play()
 
-    local function UpdateSlider()
-        TweenService:Create(sliderIndicator, TweenTable["slider_drag"], {Size = UDim2.new(0, math.clamp(Mouse.X - sliderIndicator.AbsolutePosition.X, 0, sliderBackground.AbsoluteSize.X), 0, 12)}):Play()
+                ValueNum = math.floor((((tonumber(values.max) - tonumber(values.min)) / sliderBackground.AbsoluteSize.X) * sliderIndicator.AbsoluteSize.X) + tonumber(values.min)) or 0.00
 
-        local rawValue = (((tonumber(values.max) - tonumber(values.min)) / sliderBackground.AbsoluteSize.X) * sliderIndicator.AbsoluteSize.X) + tonumber(values.min)
-
-        -- Round the value based on isDecimal
-        if isDecimal then
-            ValueNum = math.floor(rawValue * 10 + 0.5) / 10 -- Rounds to nearest 0.1
-        else
-            ValueNum = math.floor(rawValue) -- Rounds to nearest integer
-        end
-
-        slideText = compare and ValueNum .. compareSign .. tostring(values.max - 1) .. suffix or ValueNum .. suffix
-        sliderValue.Text = slideText
-
-        pcall(function()
-            callback(ValueNum)
-        end)
+                local slideText = compare and ValueNum .. compareSign .. tostring(values.max - 1) .. suffix or ValueNum .. suffix
 
                 sliderValue.Text = slideText
 
-        moveconnection = Mouse.Move:Connect(function()
-            local rawValue = (((tonumber(values.max) - tonumber(values.min)) / sliderBackground.AbsoluteSize.X) * sliderIndicator.AbsoluteSize.X) + tonumber(values.min)
+                pcall(function()
+                    callback(ValueNum)
+                end)
 
-            -- Adjust the slider value based on isDecimal
-            if isDecimal then
-                ValueNum = math.floor(rawValue * 10 + 0.5) / 10 -- Rounds to nearest 0.1
-            else
-                ValueNum = math.floor(rawValue) -- Rounds to nearest integer
+                sliderValue.Text = slideText
+
+                moveconnection = Mouse.Move:Connect(function()
+                    ValueNum = math.floor((((tonumber(values.max) - tonumber(values.min)) / sliderBackground.AbsoluteSize.X) * sliderIndicator.AbsoluteSize.X) + tonumber(values.min))
+                    
+                    slideText = compare and ValueNum .. compareSign .. tostring(values.max - 1) .. suffix or ValueNum .. suffix
+                    sliderValue.Text = slideText
+
+                    pcall(function()
+                        callback(ValueNum)
+                    end)
+
+                    TweenService:Create(sliderIndicator, TweenTable["slider_drag"], {Size = UDim2.new(0, math.clamp(Mouse.X - sliderIndicator.AbsolutePosition.X, 0, sliderBackground.AbsoluteSize.X), 0, 12)}):Play()
+                    if not UserInputService.WindowFocused then
+                        moveconnection:Disconnect()
+                    end
+                end)
+
+                releaseconnection = UserInputService.InputEnded:Connect(function(Mouse_2)
+                    if Mouse_2.UserInputType == Enum.UserInputType.MouseButton1 then
+                        ValueNum = math.floor((((tonumber(values.max) - tonumber(values.min)) / sliderBackground.AbsoluteSize.X) * sliderIndicator.AbsoluteSize.X) + tonumber(values.min))
+                        
+                        slideText = compare and ValueNum .. compareSign .. tostring(values.max - 1) .. suffix or ValueNum .. suffix
+                        sliderValue.Text = slideText
+
+                        pcall(function()
+                            callback(ValueNum)
+                        end)
+
+                        TweenService:Create(sliderIndicator, TweenTable["slider_drag"], {Size = UDim2.new(0, math.clamp(Mouse.X - sliderIndicator.AbsolutePosition.X, 0, sliderBackground.AbsoluteSize.X), 0, 12)}):Play()
+                        moveconnection:Disconnect()
+                        releaseconnection:Disconnect()
+                    end
+                end)
             end
 
-            slideText = compare and ValueNum .. compareSign .. tostring(values.max - 1) .. suffix or ValueNum .. suffix
-            sliderValue.Text = slideText
-
-            pcall(function()
-                callback(ValueNum)
+            sliderButton.MouseButton1Down:Connect(function()
+                UpdateSlider()
             end)
-
-            TweenService:Create(sliderIndicator, TweenTable["slider_drag"], {Size = UDim2.new(0, math.clamp(Mouse.X - sliderIndicator.AbsolutePosition.X, 0, sliderBackground.AbsoluteSize.X), 0, 12)}):Play()
-
-            if not UserInputService.WindowFocused then
-                moveconnection:Disconnect()
-            end
-        end)
-
-        releaseconnection = UserInputService.InputEnded:Connect(function(Mouse_2)
-            if Mouse_2.UserInputType == Enum.UserInputType.MouseButton1 then
-                moveconnection:Disconnect()
-                releaseconnection:Disconnect()
-            end
-        end)
-    end
-
-    sliderButton.MouseButton1Down:Connect(function()
-        UpdateSlider()
-    end)
 
             UpdatePageSize()
 
@@ -3521,7 +3518,7 @@ local ValueNum = values.default
                     TweenService:Create(v, TweenTable["tab_text_colour"], {TextColor3 = Color3.fromRGB(170, 170, 170)}):Play()
                 end
             end
-            TweenService:Create(tabButton, TweenTable["tab_text_colour"], {TextColor3 = Color3.fromRGB(159, 115, 255)}):Play()
+            TweenService:Create(tabButton, TweenTable["tab_text_colour"], {TextColor3 = Color3.fromRGB(115, 159, 255)}):Play()
 
             return Components
         end
