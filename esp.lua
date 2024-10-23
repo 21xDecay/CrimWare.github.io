@@ -4,7 +4,7 @@ local ESP = {
     Boxes = true,
     BoxShift = CFrame.new(0,-1.5,0),
     BoxSize = Vector3.new(4,6,0),
-    Color = Color3.fromRGB(255, 0, 0),
+    Color = Color3.fromRGB(255, 0, 0), -- Base color, but not used if TeamColor is false
     FaceCamera = false,
     Names = true,
     TeamColor = false, -- Set to false to use a fixed color
@@ -157,6 +157,22 @@ function boxBase:Update()
             self.Components.Distance.Visible = false
         end
     end
+    
+    -- Tracers
+    if ESP.Tracers then
+        local TorsoPos, Vis6 = cam:WorldToViewportPoint(locs.TagPos.p)
+        
+        if Vis6 then
+            self.Components.Tracer.From = Vector2.new(ViewportX/2, ViewportY/2)
+            self.Components.Tracer.To = Vector2.new(TorsoPos.X, TorsoPos.Y)
+            self.Components.Tracer.Color = Color3.new(1, 1, 1) -- White color for tracers
+            self.Components.Tracer.Visible = true
+        else
+            self.Components.Tracer.Visible = false
+        end
+    else
+        self.Components.Tracer.Visible = false
+    end
 end
 
 function ESP:Add(obj, options)
@@ -194,6 +210,13 @@ function ESP:Add(obj, options)
         Outline = true,
         Size = 19,
         Visible = self.Enabled and self.Names,
+    })
+
+    box.Components["Tracer"] = Draw("Line", {
+        Thickness = ESP.Thickness,
+        Color = Color3.new(1, 1, 1), -- White color for tracers
+        Transparency = 1,
+        Visible = self.Enabled and self.Tracers,
     })
 
     self.Objects[obj] = box
