@@ -9,30 +9,22 @@ local ESP = {
     Names = true,
     TeamColor = false,
     Thickness = 2,
-    AttachShift = 1,
     Players = true,
     
-    Objects = setmetatable({}, {__mode = "kv"}),
+    Objects = setmetatable({}, {__mode = "kv"}), -- Weak table to auto-cleanup
 }
 
 --Declarations--
 local cam = workspace.CurrentCamera
-local ViewportSize = cam.ViewportSize
-local ViewportX = ViewportSize.X
-local ViewportY = ViewportSize.Y
-
 local plrs = game:GetService("Players")
 local plr = plrs.LocalPlayer
 
 --Functions--
 local function Draw(obj, props)
     local new = Drawing.new(obj)
-    
-    props = props or {}
     for i, v in pairs(props) do
         new[i] = v
     end
-
     return new
 end
 
@@ -44,39 +36,16 @@ function ESP:IsTeamMate(p)
     return self:GetTeam(p) == self:GetTeam(plr) -- Check if player is a teammate
 end
 
-function ESP:GetColor()
-    return self.Color
-end
-
-function ESP:GetPlrFromChar(char)
-    return plrs:GetPlayerFromCharacter(char)
-end
-
-function ESP:Toggle(bool)
-    self.Enabled = bool
-    if not bool then
-        for _, v in pairs(self.Objects) do
-            v:Remove()
-        end
-    end
-end
-
-function ESP:Add(obj, options)
-    if not obj.Parent then
-        return
+function ESP:Add(obj)
+    if not obj.Parent or self:IsTeamMate(self:GetPlrFromChar(obj)) then
+        return -- Skip adding ESP for teammates or non-existing objects
     end
 
     local box = {
-        Name = options.Name or obj.Name,
+        Name = obj.Name,
         Object = obj,
-        PrimaryPart = obj.PrimaryPart or obj:FindFirstChild("HumanoidRootPart"),
         Components = {},
     }
-
-    -- Skip adding ESP for teammates
-    if self:IsTeamMate(self:GetPlrFromChar(obj)) then
-        return
-    end
 
     box.Components["Name"] = Draw("Text", {
         Text = box.Name,
@@ -96,7 +65,7 @@ function ESP:Add(obj, options)
     })
 
     box.Components["Tracer"] = Draw("Line", {
-        Thickness = ESP.Thickness,
+        Thickness = self.Thickness,
         Color = Color3.new(1, 1, 1), -- White color for tracers
         Transparency = 1,
         Visible = self.Enabled,
@@ -153,7 +122,7 @@ function boxBase:Update()
         local TorsoPos, Vis6 = cam:WorldToViewportPoint(locs.TagPos.p)
         
         if Vis6 then
-            self.Components.Tracer.From = Vector2.new(ViewportX / 2, ViewportY / 2)
+            self.Components.Tracer.From = Vector2.new(cam.ViewportSize.X / 2, cam.ViewportSize.Y / 2)
             self.Components.Tracer.To = Vector2.new(TorsoPos.X, TorsoPos.Y)
             self.Components.Tracer.Visible = true
         else
@@ -164,9 +133,20 @@ function boxBase:Update()
     end
 end
 
+function ESP:Toggle(bool)
+    self.Enabled = bool
+    for _, v in pairs(self.Objects) do
+        if bool then
+            v:Update() -- Update ESP if enabled
+        else
+            v:Remove() -- Remove ESP if disabled
+        end
+    end
+end
+
 game:GetService("RunService").RenderStepped:Connect(function()
     if ESP.Enabled then
-        for _, v in next, ESP.Objects do
+        for _, v in pairs(ESP.Objects) do
             if v.Update then
                 pcall(v.Update, v)
             end
