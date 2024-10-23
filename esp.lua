@@ -10,7 +10,7 @@ local ESP = {
     TeamColor = false,
     Thickness = 2,
     AttachShift = 1,
-    TeamMates = false, -- Do not show teammates
+    TeamMates = false, -- Ensure teammates are not shown
     Players = true,
     
     Objects = setmetatable({}, {__mode = "kv"}),
@@ -43,10 +43,10 @@ function ESP:GetTeam(p)
 end
 
 function ESP:IsTeamMate(p)
-    return self:GetTeam(p) == self:GetTeam(plr) and self.TeamMates
+    return self:GetTeam(p) == self:GetTeam(plr) -- Return true if same team
 end
 
-function ESP:GetColor(obj)
+function ESP:GetColor()
     return self.Color
 end
 
@@ -57,7 +57,7 @@ end
 function ESP:Toggle(bool)
     self.Enabled = bool
     if not bool then
-        for i,v in pairs(self.Objects) do
+        for _,v in pairs(self.Objects) do
             if v.Type == "Box" then
                 if v.Temporary then
                     v:Remove()
@@ -117,7 +117,7 @@ function boxBase:Update()
     end
 
     local allow = true
-    if self.Player and ESP:IsTeamMate(self.Player) then
+    if self.Player and ESP:IsTeamMate(self.Player) and not ESP.TeamMates then
         allow = false -- Prevent teammates from showing
     end
 
