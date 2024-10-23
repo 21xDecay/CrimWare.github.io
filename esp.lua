@@ -4,10 +4,8 @@ local ESP = {
     Boxes = true,
     BoxShift = CFrame.new(0, -1.5, 0),
     BoxSize = Vector3.new(4, 6, 0),
-    Color = Color3.fromRGB(255, 0, 0),
     FaceCamera = false,
     Names = true,
-    TeamColor = false,
     Thickness = 2,
     Players = true,
     
@@ -37,9 +35,11 @@ function ESP:IsTeamMate(p)
 end
 
 function ESP:Add(obj)
-    if not obj.Parent or self:IsTeamMate(self:GetPlrFromChar(obj)) then
-        return -- Skip adding ESP for teammates or non-existing objects
+    if not obj.Parent then
+        return -- Skip adding ESP for non-existing objects
     end
+
+    local color = self:IsTeamMate(self:GetPlrFromChar(obj)) and Color3.fromRGB(0, 0, 255) or Color3.fromRGB(255, 0, 0) -- Blue for teammates, Red for enemies
 
     local box = {
         Name = obj.Name,
@@ -49,7 +49,7 @@ function ESP:Add(obj)
 
     box.Components["Name"] = Draw("Text", {
         Text = box.Name,
-        Color = Color3.new(1, 1, 1), -- White color for name
+        Color = color,
         Center = true,
         Outline = true,
         Size = 19,
@@ -57,7 +57,7 @@ function ESP:Add(obj)
     })
 
     box.Components["Distance"] = Draw("Text", {
-        Color = Color3.new(1, 1, 1), -- White color for distance
+        Color = color,
         Center = true,
         Outline = true,
         Size = 19,
@@ -66,7 +66,7 @@ function ESP:Add(obj)
 
     box.Components["Tracer"] = Draw("Line", {
         Thickness = self.Thickness,
-        Color = Color3.new(1, 1, 1), -- White color for tracers
+        Color = color,
         Transparency = 1,
         Visible = self.Enabled,
     })
@@ -92,14 +92,16 @@ function boxBase:Remove()
 end
 
 function boxBase:Update()
-    if not self.PrimaryPart or ESP:IsTeamMate(ESP:GetPlrFromChar(self.Object)) then
-        return self:Remove() -- Remove ESP for teammates
+    if not self.PrimaryPart then
+        return self:Remove() -- Remove if there's no primary part
     end
 
     local cf = self.PrimaryPart.CFrame
     local locs = {
         TagPos = cf * ESP.BoxShift * CFrame.new(0, 3, 0),
     }
+
+    local color = ESP:IsTeamMate(ESP:GetPlrFromChar(self.Object)) and Color3.fromRGB(0, 0, 255) or Color3.fromRGB(255, 0, 0) -- Update color based on team
 
     if ESP.Names then
         local TagPos, Vis = cam:WorldToViewportPoint(locs.TagPos.p)
