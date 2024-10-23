@@ -4,10 +4,10 @@ local ESP = {
     Boxes = true,
     BoxShift = CFrame.new(0,-1.5,0),
     BoxSize = Vector3.new(4,6,0),
-    Color = Color3.fromRGB(255, 0, 0), -- Base color, but not used if TeamColor is false
+    Color = Color3.fromRGB(255, 0, 0),
     FaceCamera = false,
     Names = true,
-    TeamColor = false, -- Set to false to use a fixed color
+    TeamColor = false,
     Thickness = 2,
     AttachShift = 1,
     TeamMates = false, -- Do not show teammates
@@ -25,10 +25,6 @@ local ViewportY = ViewportSize.Y
 
 local plrs = game:GetService("Players")
 local plr = plrs.LocalPlayer
-local mouse = plr:GetMouse()
-
-local V3new = Vector3.new
-local WorldToViewportPoint = cam.WorldToViewportPoint
 
 --Functions--
 local function Draw(obj, props)
@@ -47,11 +43,11 @@ function ESP:GetTeam(p)
 end
 
 function ESP:IsTeamMate(p)
-    return self:GetTeam(p) == self:GetTeam(plr)
+    return self:GetTeam(p) == self:GetTeam(plr) and self.TeamMates
 end
 
 function ESP:GetColor(obj)
-    return self.Color -- Use a fixed color
+    return self.Color
 end
 
 function ESP:GetPlrFromChar(char)
@@ -66,7 +62,7 @@ function ESP:Toggle(bool)
                 if v.Temporary then
                     v:Remove()
                 else
-                    for i,v in pairs(v.Components) do
+                    for _,v in pairs(v.Components) do
                         v.Visible = false
                     end
                 end
@@ -98,7 +94,7 @@ function ESP:AddObjectListener(parent, options)
     end
 
     parent.ChildAdded:Connect(NewListener)
-    for i,v in pairs(parent:GetChildren()) do
+    for _,v in pairs(parent:GetChildren()) do
         coroutine.wrap(NewListener)(v)
     end
 end
@@ -108,10 +104,10 @@ boxBase.__index = boxBase
 
 function boxBase:Remove()
     ESP.Objects[self.Object] = nil
-    for i,v in pairs(self.Components) do
+    for _,v in pairs(self.Components) do
         v.Visible = false
         v:Remove()
-        self.Components[i] = nil
+        self.Components[_] = nil
     end
 end
 
@@ -121,18 +117,18 @@ function boxBase:Update()
     end
 
     local allow = true
-    if self.Player and not ESP.TeamMates and ESP:IsTeamMate(self.Player) then
-        allow = false
+    if self.Player and ESP:IsTeamMate(self.Player) then
+        allow = false -- Prevent teammates from showing
     end
 
     if not allow then
-        for i,v in pairs(self.Components) do
+        for _,v in pairs(self.Components) do
             v.Visible = false
         end
         return
     end
 
-    -- Calculations for positioning
+    -- Positioning calculations
     local cf = self.PrimaryPart.CFrame
     local locs = {
         TagPos = cf * ESP.BoxShift * CFrame.new(0, 3, 0),
